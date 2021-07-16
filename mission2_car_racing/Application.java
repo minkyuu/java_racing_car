@@ -6,6 +6,10 @@ import java.util.StringTokenizer;
 
 public class Application {
     public static void main(String[] args) {
+        play();
+    }
+
+    public static void play(){
         Scanner sc = new Scanner(System.in);
 
         System.out.println("몇 번 이동하겠습니까?");
