@@ -29,13 +29,7 @@ public class Application {
 
         // 이동 시작
         for (int i = 0; i < moveNum; i++) {
-            for (String carName : cars.keySet()) {
-                int move = (int)(Math.random()*10);
-                if (move > 3){
-                    cars.replace(carName, cars.get(carName)+1);
-                    System.out.println(carName+"가 전진하였습니다.");
-                }
-            }
+            moveCars(cars);
         }
 
         int max = 0;
@@ -59,6 +53,16 @@ public class Application {
                 break;
             }
             System.out.println("winner : "+winner[i]);
+        }
+    }
+
+    public static void moveCars(HashMap<String, Integer> cars){
+        for (String carName : cars.keySet()) {
+            int move = (int)(Math.random()*10);
+            if (move > 3){
+                cars.replace(carName, cars.get(carName)+1);
+                System.out.println(carName+"가 전진하였습니다.");
+            }
         }
     }
 }
