@@ -1,5 +1,6 @@
 package mission2_car_racing;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.StringTokenizer;
@@ -34,21 +35,7 @@ public class Application {
 
         int max = findMax(cars);
 
-        String[] winner = new String[n];
-        int idx = 0;
-        for (String carName : cars.keySet()){
-            System.out.println(carName+","+cars.get(carName));
-            if (cars.get(carName) == max){
-                winner[idx++] = carName;
-            }
-        }
-
-        for (int i = 0; i < winner.length; i++){
-            if (winner[i] == null){
-                break;
-            }
-            System.out.println("winner : "+winner[i]);
-        }
+        noticeWinner(max, cars);
     }
 
     public static void moveCars(HashMap<String, Integer> cars){
@@ -69,5 +56,20 @@ public class Application {
             }
         }
         return max;
+    }
+
+    public static void noticeWinner(int max, HashMap<String, Integer> cars){
+        ArrayList<String> winner = new ArrayList<>();
+        int idx = 0;
+        for (String carName : cars.keySet()){
+            System.out.println(carName+","+cars.get(carName));
+            if (cars.get(carName) == max){
+                winner.add(carName);
+            }
+        }
+
+        for (int i = 0; i < winner.size(); i++){
+            System.out.println("winner : "+winner.get(i));
+        }
     }
 }
