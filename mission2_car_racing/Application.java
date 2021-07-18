@@ -32,12 +32,7 @@ public class Application {
             moveCars(cars);
         }
 
-        int max = 0;
-        for (String carName : cars.keySet()){
-            if (cars.get(carName) > max){
-                max = cars.get(carName);
-            }
-        }
+        int max = findMax(cars);
 
         String[] winner = new String[n];
         int idx = 0;
@@ -64,5 +59,15 @@ public class Application {
                 System.out.println(carName+"가 전진하였습니다.");
             }
         }
+    }
+
+    public static int findMax(HashMap<String, Integer> cars){
+        int max = 0;
+        for (String carName : cars.keySet()){
+            if (cars.get(carName) > max){
+                max = cars.get(carName);
+            }
+        }
+        return max;
     }
 }
